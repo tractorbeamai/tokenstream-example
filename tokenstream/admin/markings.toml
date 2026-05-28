@@ -1,0 +1,9 @@
+# Marking registry for the tokenstream workspace.
+#
+# A grouped marking enumerates its allowed values; the compiler rejects any
+# value outside this set. Fields bind to it in Python with
+# `tb.Marking("region")`, and flows inherit it from the merchant via
+# `tb.Marking("region", through="merchant")`.
+
+[markings]
+region = ["us", "eu", "uk"]

@@ -1,0 +1,19 @@
+[project]
+name = "tokenstream-example"
+version = "0.1.0"
+description = "tokenstream — a Tractorbeam example workspace for stablecoin payments."
+requires-python = ">=3.12"
+dependencies = ["tractorbeam-sdk"]
+
+[tool.uv.sources]
+tractorbeam-sdk = { git = "https://github.com/tractorbeamai/constellation.git", subdirectory = "python/packages/tractorbeam-sdk" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

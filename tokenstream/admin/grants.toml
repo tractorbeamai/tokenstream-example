@@ -1,0 +1,8 @@
+# Marking grants. Each group sees only the regions it is granted; every read
+# (SQL, REST, MCP, SSE) is filtered to the caller's grants.
+
+[grants."group:treasury-us"]
+markings = ["region:us"]
+
+[grants."group:treasury-global"]
+markings = ["region:us", "region:eu", "region:uk"]
