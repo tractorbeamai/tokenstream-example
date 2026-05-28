@@ -1,10 +1,8 @@
-"""ClickHouse — a customer-side analytical store, ingested as one more feed.
+"""ClickHouse — Tokenstream's internal analytical warehouse, ingested as a source feed.
 
-Many teams already reconcile across counterparties in an internal data warehouse
-before adopting an ontology. A plain ``@tb.Connector`` reads the reconciled
-balance snapshot over ClickHouse's HTTP interface and lands it in the shared
-``BALANCE`` shape, governed alongside every other source. ClickHouse is not a
-managed type, so the read is a ``POST`` carrying a ``SELECT`` — the same
+A plain ``@tb.Connector`` reads the reconciled balance snapshot over ClickHouse's
+HTTP interface and lands it in the shared ``BALANCE`` shape, governed alongside
+every other source. The read is a ``POST`` carrying a ``SELECT`` — the same
 authoring surface as any other custom connector here.
 
 Docs:   https://clickhouse.com/docs/en/interfaces/http
@@ -37,7 +35,7 @@ _STABLE = ("USDC", "USDP")
 
 @tb.Connector()
 class ClickHouse:
-    """In-house cross-venue reconciled balances, read from ClickHouse."""
+    """Cross-venue reconciled balances, read from ClickHouse."""
 
     credentials: tb.Secret = tb.Secret("clickhouse_credentials")
 
