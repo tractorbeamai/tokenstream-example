@@ -41,7 +41,7 @@ Four pieces, each load-bearing:
 
 - A connector per source pulls its feed on its native cadence and maps it to one shared row shape.
 - An ontology models counterparties, the accounts that hold balances, the payments / settlements / payouts that move value, and FX.
-- Markings travel with the data, so a region restriction enforces on every read rather than in a separate access layer.
+- Markings travel with the data, so a region restriction enforces on every read.
 - A treasury action flags a payout account that won't cover its next cycle and proposes a rebalance as a changeset a human approves.
 
 ## Data model
@@ -88,7 +88,7 @@ directly, while `Payment` and `Payout` inherit it from the merchant via
 
 | Path | Declares |
 |------|----------|
-| `connectors/` | Source feeds, one module per source: acquirers (`jpmorgan`, `adyen`, `worldpay`, `fiserv`), exchanges and custody (`coinbase_prime`, `kraken`, `gemini`, `fireblocks`), payout banks (`column`, `cross_river`, `increase`), issuers (`circle`, `paxos`), FX (`oanda`), and a customer-side analytical store (`clickhouse`). `_transport.py` is the mocked network boundary, `_auth.py` holds the auth patterns, `_schemas.py` holds the shared normalized shapes. |
+| `connectors/` | Source feeds, one module per source: acquirers (`jpmorgan`, `adyen`, `worldpay`, `fiserv`), exchanges and custody (`coinbase_prime`, `kraken`, `gemini`, `fireblocks`), payout banks (`column`, `cross_river`, `increase`), issuers (`circle`, `paxos`), FX (`oanda`), and Tokenstream's own analytical warehouse (`clickhouse`). `_transport.py` is the mocked network boundary, `_auth.py` holds the auth patterns, `_schemas.py` holds the shared normalized shapes. |
 | `entities.py` | Counterparties: `AcquiringBank`, `PayoutBank`, `Exchange`, `StablecoinIssuer`, and `Merchant`. |
 | `stocks.py` | `Account`, the balances held (the stocks), linked to the counterparty that holds them. |
 | `flows.py` | `Payment`, `Settlement`, `Payout`, the value moved (the flows). |

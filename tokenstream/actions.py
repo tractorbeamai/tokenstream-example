@@ -1,4 +1,4 @@
-"""Treasury actions — the dividend once the picture is reconciled.
+"""Treasury actions — scheduled checks and event-triggered proposals over the reconciled ontology.
 
 ``flag_underfunded`` runs every morning and raises an alert for any payout
 account that won't cover the next cycle's payouts. ``propose_rebalance``

@@ -1,4 +1,4 @@
-"""Source connectors, one module per provider.
+"""Source connectors, one module per source.
 
 Almost every feed is a custom ``@tb.Connector`` that emits its rows inline; Stripe is
 the lone ``tb.ManagedConnector``. So the example runs end-to-end without credentials,
